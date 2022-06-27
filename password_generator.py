@@ -16,10 +16,12 @@ if length < 1:
 
 elif length < 8:
     first_letter = random.choice(letters)
-    print(first_letter)
-    sample = random.sample(characters, length - 1)
-    print(sample)
-    pw = first_letter + "".join(sample)
+    rand_sample = random.sample(characters, length - 1)
+    pw = first_letter + "".join(rand_sample)
     print(pw)
 
-
+else:
+    first_letter = random.choice(letters)
+    rand_choices = random.choices(characters, k=length - 1)
+    pw = first_letter + "".join(rand_choices)
+    print(pw)
