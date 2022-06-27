@@ -1,23 +1,25 @@
 import random
 import string
 
-length = int(input("Enter password length: "))
-
 uppers = string.ascii_uppercase
 lowers = string.ascii_lowercase
 nums = string.digits
 symbols = string.punctuation
+letters = uppers + lowers
+characters = letters + nums + symbols
 
-characters = uppers + lowers + nums + symbols
+length = int(input("Enter password length: "))
 
-# print(characters)
-# print(type(characters))
 
-sample = random.sample(characters, length)
+if length < 1:
+    print("Password length must be a positive integer.")
 
-# print(sample)
+elif length < 8:
+    first_letter = random.choice(letters)
+    print(first_letter)
+    sample = random.sample(characters, length - 1)
+    print(sample)
+    pw = first_letter + "".join(sample)
+    print(pw)
 
-sample_pw = "".join(sample)
-
-print(sample_pw)
 
